@@ -1,24 +1,35 @@
-# README
+# PetGatô - Grupo 8 PT 2021/2
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Rodando o projeto localmente
 
-Things you may want to cover:
+Basta executar os seguintes comandos:
 
-* Ruby version
+```
+bundle install
+rails db:create db:migrate
+rails s
+```
 
-* System dependencies
+Com isso o projeto deve estar rodando em [https://localhost:3001](https://localhost:3001/).
 
-* Configuration
+### Branches
 
-* Database creation
+As branches seguem o formato **tipo/resumo**. Ex: feat/login_page.
 
-* Database initialization
+Os tipos podem ser:
 
-* How to run the test suite
+- feat - adiciona uma nova funcionalidade
+- fix - correção de bug/erro;
+- refactor: refatoração do código, sem alteração nas features
+- style: tudo relacionado a estilização
+- docs - adiciona ou modifica arquivos de documentaçao (README ...)
+- task: remove o link hardcoded da api
 
-* Services (job queues, cache servers, search engines, etc.)
+### Commits
 
-* Deployment instructions
+Representa uma ideia mais específica da tarefa. Na hora de fazer um commit, o ideal é seguir o padrão **tipo: resumo**. Para fazer o resumo complete a frase  (Se aplicado esse commit...) {resumo}. Ex: feat: implementa componentes de input.
 
-* ...
+### Mais informações sobre git
+
+https://brennop.github.io/wiki/#/git/guia
+
