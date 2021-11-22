@@ -10,14 +10,14 @@ class UsersController < ApplicationController
 
   # GET /users/{username}
   def show
-    render json: @user, status: :ok
+    render json: {user:@user,photo:"http://localhost:3001/#{@user.image_url}"}, status: :ok
   end
 
   # POST /users
   def create
     @user = User.new(user_params)
     if @user.save
-      render json: @user, status: :created
+      render json: {user:@user,photo:"http://localhost:3001/#{@user.image_url}"}, status: :created
     else
       render json: { errors: @user.errors.full_messages },
              status: :unprocessable_entity
