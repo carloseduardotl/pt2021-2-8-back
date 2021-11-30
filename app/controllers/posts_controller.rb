@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    render json: @post.as_json.merge({banner_image: url_for(@post.banner_image)}), status: :ok
+    render json: @post.as_json.merge({banner_image: url_for(@post.banner_image), tags: @post.tags}), status: :ok
   end
 
   # POST /posts
