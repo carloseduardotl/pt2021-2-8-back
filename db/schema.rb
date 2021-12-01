@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_01_032434) do
+ActiveRecord::Schema.define(version: 2021_12_01_033745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,6 +96,25 @@ ActiveRecord::Schema.define(version: 2021_12_01_032434) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "replies", force: :cascade do |t|
+    t.text "description"
+    t.bigint "user_id", null: false
+    t.bigint "comment_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["comment_id"], name: "index_replies_on_comment_id"
+    t.index ["user_id"], name: "index_replies_on_user_id"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.bigint "reply_id", null: false
+    t.bigint "comment_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["comment_id"], name: "index_reports_on_comment_id"
+    t.index ["reply_id"], name: "index_reports_on_reply_id"
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -120,4 +139,8 @@ ActiveRecord::Schema.define(version: 2021_12_01_032434) do
   add_foreign_key "likes", "users"
   add_foreign_key "post_has_tags", "posts"
   add_foreign_key "post_has_tags", "tags"
+  add_foreign_key "replies", "comments"
+  add_foreign_key "replies", "users"
+  add_foreign_key "reports", "comments"
+  add_foreign_key "reports", "replies"
 end
