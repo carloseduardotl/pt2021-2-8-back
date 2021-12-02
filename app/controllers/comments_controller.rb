@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
   # GET /comments/1
   # GET /comments/1.json
   def show
-    render json: {comment: @comment, reports: @comment.reports, replies: @comment.replies, user: @comment.user}, status: :ok
+    render json: {comment: @comment, post: @comment.post, reports: @comment.reports, replies: @comment.replies, user: @comment.user}, status: :ok
   end
 
   # POST /comments
