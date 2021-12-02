@@ -15,7 +15,7 @@ class TagsController < ApplicationController
   # GET /tags/1
   # GET /tags/1.json
   def show
-    render json: {tag: @tag, posts: @tag.posts}
+    render json: {tag: @tag, posts: @tag.posts}, status: :ok
   end
 
   # POST /tags
