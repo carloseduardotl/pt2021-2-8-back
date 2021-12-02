@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   # Rotas auxiliares
 
   get '/posts/:id/tags', to: 'posts#tags'
+  get '/posts/:id/likes', to: 'posts#likes'
+  get '/posts/:id/comments', to: 'posts#comments'
+
   get '/tags/:id/posts', to: 'tags#posts'
 
 end

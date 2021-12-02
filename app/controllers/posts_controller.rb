@@ -6,6 +6,16 @@ class PostsController < ApplicationController
     render json: post.tags
   end
 
+  def likes
+    post = Post.find(params[:id])
+    render json: post.likes
+  end
+
+  def comments
+    post = Post.find(params[:id])
+    render json: post.comments
+  end
+
   # GET /posts
   # GET /posts.json
   def index
