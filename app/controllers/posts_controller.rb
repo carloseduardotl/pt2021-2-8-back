@@ -1,6 +1,11 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show update destroy ]
 
+  def tags
+    post = Post.find(params[:id])
+    render json: post.tags
+  end
+
   # GET /posts
   # GET /posts.json
   def index

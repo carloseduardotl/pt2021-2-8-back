@@ -1,6 +1,11 @@
 class TagsController < ApplicationController
   before_action :set_tag, only: %i[ show update destroy ]
 
+  def posts
+    tag = Tag.find(params[:id])
+    render json: tag.posts
+  end
+
   # GET /tags
   # GET /tags.json
   def index
