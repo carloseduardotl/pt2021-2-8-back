@@ -19,4 +19,7 @@ Rails.application.routes.draw do
 
   get '/tags/:id/posts', to: 'tags#posts'
 
+  get '/comments/:id/reports', to: 'comments#reports'
+  get '/comments/:id/replies', to: 'comments#replies'
+
 end

@@ -1,6 +1,16 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[ show update destroy ]
 
+  def reports
+    comment = Comment.find(params[:id])
+    render json: comment.reports
+  end
+
+  def replies
+    comment = Comment.find(params[:id])
+    render json: comment.replies
+  end
+  
   # GET /comments
   # GET /comments.json
   def index
