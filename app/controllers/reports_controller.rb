@@ -10,6 +10,7 @@ class ReportsController < ApplicationController
   # GET /reports/1
   # GET /reports/1.json
   def show
+    render json: {report: @report, reply: @report.reply, comment: @report.comment}
   end
 
   # POST /reports

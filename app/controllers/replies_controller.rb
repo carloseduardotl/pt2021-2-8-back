@@ -10,7 +10,7 @@ class RepliesController < ApplicationController
   # GET /replies/1
   # GET /replies/1.json
   def show
-    render json: {reply: @reply, reports: @reply.reports}
+    render json: {reply: @reply, reports: @reply.reports, user: @reply.user}
   end
 
   # POST /replies

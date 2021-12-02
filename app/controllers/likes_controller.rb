@@ -10,6 +10,7 @@ class LikesController < ApplicationController
   # GET /likes/1
   # GET /likes/1.json
   def show
+    render json: {like: @like, post: @like.post, user: @like.user}, status: :ok
   end
 
   # POST /likes
