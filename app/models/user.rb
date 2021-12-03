@@ -10,6 +10,10 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
+  has_many :likes
+  has_many :comments
+  has_many :replies
+
   def image_url
     Rails.application.routes.url_helpers.rails_blob_path(self.avatar, only_path: true) if self.avatar.attached?
   end
