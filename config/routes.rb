@@ -22,4 +22,9 @@ Rails.application.routes.draw do
   get '/comments/:id/reports', to: 'comments#reports'
   get '/comments/:id/replies', to: 'comments#replies'
 
+  # Rotas de recuperação de conta
+
+  post "login/forgot_password", to: "users#forgot"
+  post "login/reset_password", to: "users#reset"
+
 end
