@@ -20,6 +20,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    render json: {posts: @posts}, status: :ok
   end
 
   # GET /posts/1
