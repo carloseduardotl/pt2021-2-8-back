@@ -1,6 +1,16 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[ show update destroy ]
 
+  def reports
+    comment = Comment.find(params[:id])
+    render json: comment.reports
+  end
+
+  def replies
+    comment = Comment.find(params[:id])
+    render json: comment.replies
+  end
+  
   # GET /comments
   # GET /comments.json
   def index
@@ -10,6 +20,7 @@ class CommentsController < ApplicationController
   # GET /comments/1
   # GET /comments/1.json
   def show
+    render json: {comment: @comment, post: @comment.post, reports: @comment.reports, replies: @comment.replies, user: @comment.user}, status: :ok
   end
 
   # POST /comments

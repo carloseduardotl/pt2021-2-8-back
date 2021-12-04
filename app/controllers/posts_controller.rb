@@ -1,6 +1,21 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show update destroy ]
 
+  def tags
+    post = Post.find(params[:id])
+    render json: post.tags
+  end
+
+  def likes
+    post = Post.find(params[:id])
+    render json: post.likes
+  end
+
+  def comments
+    post = Post.find(params[:id])
+    render json: post.comments
+  end
+
   # GET /posts
   # GET /posts.json
   def index
@@ -10,7 +25,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    render json: @post.as_json.merge({content: @post.content, banner_image: url_for(@post.banner_image), tags: @post.tags}), status: :ok
+    render json: {post: @post, content: @post.content, banner_image: url_for(@post.banner_image), tags: @post.tags, likes: @post.likes, comments: @post.comments}, status: :ok
   end
 
   # POST /posts

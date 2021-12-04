@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   # GET /users/{username}
   def show
-    render json: @user.as_json.merge({ avatar: url_for(@user.avatar)}), status: :ok
+    render json: @user.as_json.merge({ avatar: url_for(@user.avatar), likes: @user.likes, comments: @user.comments, replies: @user.replies}), status: :ok
   end
 
   # POST /users
